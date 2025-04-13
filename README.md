@@ -1,240 +1,244 @@
 # Human.art
-Alright, let’s build a **super detailed and structured documentation** for your artist-centric platform — this is shaping up to be a beautiful, creative, and functional space for both digital and traditional artists. The goal here will be to lay down a blueprint that covers everything: features, user roles, architecture, tech stack decisions, necessary tools, and a breakdown of all the important pages/components.
 
 ---
 
-# 🎨 **Project Documentation: Artist Platform**
+## 🎨 **Artist Platform - Technical & Functional Documentation**
 
 ---
 
-## 📌 **1. Project Overview**
+### 🧱 **1. Tech Stack Overview**
 
-**Name (Tentative):** *Artspire / CreativHub / MuseNet*  
-**Purpose:**  
-A community platform for artists (traditional and digital) to share their work, tell stories, post process videos, write blogs, and earn income via tips, auctions, and direct sales.
+#### **Frontend**
+- **Languages**: HTML5, CSS3, JavaScript (Vanilla or consider using React/Vue for scalability)
+- **Styling**: Custom CSS or frameworks like TailwindCSS or SCSS
+- **Media Handling**: Responsive image/video rendering (lazy loading, etc.)
 
-**Core Values:**
-- Artist-first experience
-- No AI-generated art
-- Authentic interaction and appreciation
-- A space to grow an audience and monetize real creative effort
-
----
-
-## 👥 **2. User Roles**
-
-| Role        | Description |
-|-------------|-------------|
-| **Visitor (Public)** | Can browse public artworks, artist profiles, and featured museums. |
-| **Registered User / Fan** | Can follow artists, tip them, comment, bid on artwork, and purchase. |
-| **Artist** | Can upload artworks, write blogs, post videos, manage profile/store, and view analytics. |
-| **Admin** | Manages users, content moderation, handles reported content, manages auctions, features, etc. |
+#### **Backend**
+- **Language**: Python (Flask or Django recommended)
+- **Database**: MongoDB (NoSQL, perfect for flexible artist/project data)
+- **Authentication**: JWT / OAuth2 (secure sign-up/sign-in)
+- **Storage**: AWS S3 / Cloudinary for media file uploads (images, videos)
+- **Optional**: Celery for background jobs, Redis for caching
 
 ---
 
-## ⚙️ **3. Core Features & Functionality**
+### 🌐 **2. Core Features Overview**
 
-### 🔧 Artist Features
-- [ ] Sign Up / Login
-- [ ] Profile Setup: Bio, avatar, cover image, links (socials)
-- [ ] Upload Artwork (image, title, medium, tags, price, sale type)
-- [ ] Upload Process Video (Short-form videos < 2 min, no AI)
-- [ ] Write Blog Posts (Markdown supported)
-- [ ] Enable/Disable artworks for sale, auction, or just display
-- [ ] Tip Jar integration (Stripe/PayPal/etc.)
-- [ ] Analytics: views, likes, followers, sales, earnings
+#### 🧑‍🎨 **Artist Side**
+- Artist Registration/Login
+- Artist Dashboard
+- Profile Creation (Bio, Socials, Portfolio)
+- Upload Artwork (Images/Short Process Videos)
+- Write Blog Posts
+- Auction/Bid Management
+- Receive Tips/Donations
+- Manage Shop Items (Pricing, Inventory)
+- Analytics (Views, Likes, Follows, Tips)
 
-### 🛒 Monetization
-- [ ] Tips (One-time contributions)
-- [ ] Direct Sales (Shop integration)
-- [ ] Auctions (Time-based with starting bid, bidding history)
-- [ ] Commissions (Optional future expansion)
+#### 🧑‍🤝‍🧑 **Audience Side**
+- Browse Artworks
+- Follow Artists
+- Like/Comment on Posts
+- Bid on Artworks (Auction)
+- Tip Artists
+- Purchase via Shop
+- Save Favorites
 
-### 🖼 Audience/Visitors Features
-- [ ] Discover Artists
-- [ ] Follow/Unfollow
-- [ ] Comment on posts/artworks
-- [ ] Like artworks/posts/videos
-- [ ] Tip artist
-- [ ] Shop & Buy
-- [ ] Bid on auctions
-- [ ] Save/Bookmark artworks
-
-### 🏛 Special Features
-- [ ] **Featured Digital Museums** – Virtual galleries curated weekly/monthly
-- [ ] **Art Events** – Optional section for featured exhibitions, calls for art, etc.
-- [ ] **Explore by Medium / Tag / Style**
-- [ ] **Search with Filters**
-
-### 📱 Social & Communication
-- [ ] Email Notifications (new followers, sales, etc.)
-- [ ] On-site Notifications (bids, comments, messages)
-- [ ] Optional: Messaging system (DMs between users)
+#### 🎫 **Admin Side**
+- Approve/Reject Artist Applications
+- Manage Featured Artists & Galleries
+- Review Reports (if content is flagged)
+- Manage Auctions & Marketplace Listings
+- Global Site Settings
 
 ---
 
-## 🧱 **4. Suggested Tech Stack**
+### 📄 **3. Page & Route Structure**
 
-### ⚙️ Frontend
-- **Framework:** React or Next.js (SSR + SEO boost)
-- **Styling:** Tailwind CSS / Styled Components
-- **Animations:** Framer Motion
-- **State Management:** Zustand / Redux Toolkit (if needed)
-- **Video Player:** Plyr or custom
-- **Image Upload:** Dropzone or Uppy
+#### **Public Pages**
+- Home Page (Intro, Featured Art, Search)
+- Browse Art (Filter by medium/style)
+- Artist Profiles
+- Artwork Detail Pages
+- Blog (Public)
+- About Us
+- Contact
 
-### 🗂 Backend
-- **Framework:** Node.js + Express OR Next.js fullstack
-- **Database:** PostgreSQL (for structure) OR MongoDB (for flexibility)
-- **Auth:** NextAuth / Auth.js / Firebase Auth / Supabase Auth
-- **Media Storage:** AWS S3 / Cloudinary
-- **Real-time Bidding / Notifications:** WebSockets + Redis
-- **Payments:** Stripe or PayPal integration
+#### **Auth Pages**
+- Sign Up / Login (Email & Password or OAuth)
+- Password Reset / Email Verification
 
-### 🌍 Hosting & DevOps
-- **Frontend Hosting:** Vercel / Netlify
-- **Backend:** Render / Railway / Heroku / AWS
-- **DB Hosting:** Supabase / PlanetScale / DigitalOcean
-- **CI/CD:** GitHub Actions / Vercel CI
-- **Monitoring:** LogRocket / Sentry
+#### **Artist Pages (After Login)**
+- Dashboard (Quick stats, tips, updates)
+- Profile Editor
+- Upload Artwork
+- Post Blog / Edit / Delete
+- View Bids & Auctions
+- Shop Management
 
----
-
-## 📄 **5. Page Breakdown**
-
-### 🏠 Home Page
-- Hero Section
-- Featured Museums
-- Trending Artists
-- Latest Blog Posts
-- CTA to Join
-
-### 🖼 Explore Page
-- Grid of artworks (filterable by medium, type, price, tag)
-- Sort by latest, popular, price, auction, etc.
-
-### 👩‍🎨 Artist Profile
-- Avatar, Bio, Links
-- Tabs: Artworks / Blog / Videos / Store / Auctions
-- Follow button
-- Tip button
-- Followers count
-
-### 🛍 Store Page (Per Artist or Global)
-- Products listed with pricing
-- Add to cart / Buy now
-- Filterable by type
-
-### 💬 Blog Page
-- List of blog posts
-- Blog post viewer (markdown to HTML)
-
-### 🎥 Videos Page
-- Short process clips
-- Like, Comment
-- Load more scroll
-
-### 💰 Auctions Page
-- List of active auctions
-- View item → Bid
-- Time countdown
-- History of bids
-
-### 💼 Dashboard (For Artists)
-- Upload Manager
-- Sales Overview
-- Analytics
-- Messages
-- Settings
-
-### ⚙️ Admin Panel
-- Manage Users
-- Moderate Content
-- Feature/Unfeature artworks
-- Auction Approvals
-- Report Handling
+#### **Admin Pages**
+- Admin Dashboard
+- User Management
+- Content Moderation
+- Analytics Overview
 
 ---
 
-## 📝 **6. Things to Consider**
+### 💾 **4. Database Structure (MongoDB)**
 
-### 📐 UX/UI Design
-- Mobile-first responsive design
-- No wrapping text in navigation
-- Emphasis on artwork display (minimal UI)
-- Theme toggle (light/dark mode)
-- Accessibility (alt texts, contrast, keyboard nav)
+#### **Users Collection**
+```json
+{
+  _id: ObjectId,
+  username: "artist_name",
+  email: "email@domain.com",
+  password_hash: "...",
+  role: "artist" | "admin" | "user",
+  bio: "...",
+  social_links: [...],
+  profile_image: "...",
+  created_at: Date,
+  tips_received: Number,
+  followers: [...user_ids]
+}
+```
 
-### 📦 Scalability
-- CDN for static assets
-- Lazy loading for images/videos
-- Image optimization (Cloudinary)
-- Caching with Redis for explore/feed
+#### **Artworks Collection**
+```json
+{
+  _id: ObjectId,
+  artist_id: user_id,
+  title: "Artwork Title",
+  description: "...",
+  image_url: "...",
+  medium: "canvas" | "digital",
+  tags: [...],
+  created_at: Date,
+  likes: [...user_ids],
+  comments: [{ user_id, comment, timestamp }]
+}
+```
 
-### 🔒 Security
-- Authentication
-- Authorization (Roles-based access)
-- Rate limiting
-- CSRF/XSS/SQL injection protection
+#### **Blogs Collection**
+```json
+{
+  _id: ObjectId,
+  author_id: user_id,
+  title: "Title",
+  content: "...",
+  cover_image: "...",
+  created_at: Date
+}
+```
 
-### 📈 Growth Potential
-- API access for mobile app in future
-- Multi-language support
-- Email digest for new drops/artists
+#### **Tips Collection**
+```json
+{
+  _id: ObjectId,
+  artist_id: user_id,
+  supporter_id: user_id,
+  amount: Number,
+  date: Date
+}
+```
+
+#### **Auctions Collection**
+```json
+{
+  _id: ObjectId,
+  artwork_id: ObjectId,
+  artist_id: user_id,
+  starting_price: Number,
+  current_bid: Number,
+  current_bidder: user_id,
+  bid_history: [{ bidder_id, amount, date }],
+  end_time: Date,
+  status: "open" | "closed"
+}
+```
+
+#### **Shop Items Collection**
+```json
+{
+  _id: ObjectId,
+  artist_id: user_id,
+  title: "Shop Item Title",
+  price: Number,
+  image: "...",
+  stock: Number,
+  description: "..."
+}
+```
 
 ---
 
-## 🧪 7. MVP Feature Set
+### 💡 **5. Key Considerations**
 
-To launch faster, you can focus on the **MVP** (Minimum Viable Product):
+#### **Security**
+- Use HTTPS
+- Sanitize inputs (prevent XSS, CSRF)
+- Rate-limit endpoints
+- Password hashing (bcrypt)
+- Email verification / 2FA (optional)
 
-### MVP Version Includes:
-- Sign up / Login
+#### **Performance**
+- Image compression
+- Use CDN for static assets
+- Lazy loading
+- Caching with Redis
+
+#### **Media Uploads**
+- Restrict file size
+- Format validation (JPEG, PNG, MP4, WebM)
+- Video transcoding (if necessary)
+
+#### **SEO & Accessibility**
+- Proper semantic tags
+- Alt text for images
+- ARIA labels where necessary
+- Sitemap generation
+
+#### **Monetization**
+- Payment integration (Stripe/PayPal)
+- Tip system via wallet or direct
+- Commission fee system
+
+---
+
+### 🧪 **6. MVP Scope**
+
+To get started quickly, aim for an MVP with:
+- Artist signup/login
 - Upload artwork
-- Artist profile
-- Tip functionality
-- Blog posts
-- Art feed / explore
-- Follow system
-- Comments + likes
-- Admin content moderation
-- Stripe integration
-- Home, Explore, Profile, Blog, Store, Admin
+- Browse page (for audience)
+- Tips & follows
+- Basic profile management
+- Admin panel for artist verification
+- Shop listing and checkout integration
 
 ---
 
-## 📦 Folder Structure (Frontend Example)
+### 📦 **7. Future Features & Ideas**
 
-```
-/src
-  /components
-  /pages
-    /explore
-    /artist/[id]
-    /upload
-    /store
-    /auction
-    /blog
-    /admin
-  /styles
-  /utils
-  /hooks
-  /context
-```
+- Live event/gallery streaming (for virtual showcases)
+- Artist collaboration features
+- Custom artist domains/subpages
+- Digital asset minting (non-blockchain)
+- Notification system (in-app + email)
+- Mobile app version (Flutter/React Native)
 
 ---
 
-## 📅 Project Timeline Suggestion
+### 🛠️ **8. Tools & Services to Consider**
 
-| Phase | Tasks |
-|-------|-------|
-| Week 1-2 | Wireframing, Design, Architecture planning |
-| Week 3-5 | Frontend + Backend basic pages + Auth |
-| Week 6-8 | Artwork upload, Feed, Profile, Blog |
-| Week 9-10 | Tips + Store + Payments |
-| Week 11-12 | Auctions, Admin Tools |
-| Week 13 | Testing, Polish, Launch MVP |
+- **Frontend**: TailwindCSS, AlpineJS, or Vue.js if you want reactive components
+- **Backend**: Flask + MongoEngine / Django + Djongo (with MongoDB adapter)
+- **Media Storage**: Cloudinary or AWS S3
+- **Payments**: Stripe/PayPal for tipping & purchases
+- **Deployment**: Vercel for frontend, Heroku/DigitalOcean for backend
+- **CI/CD**: GitHub Actions for deployment pipeline
+- **Testing**: Pytest for backend, Jest or Mocha for frontend JS
 
 ---
 
-Would you like me to turn this into a collaborative Google Doc or Markdown file so you can build on it? Or want to prioritize tasks from the MVP list first?
+Want to start designing the user flow and UI wireframes next? Or should we build the database schemas and folder structures for the backend first?
